@@ -215,7 +215,7 @@ export function encode(midi: Midi): Uint8Array {
 		
 		let lastTime = 0;
 		track.forEach(note => {
-			note.deltaTime = note.absoluteTime - lastTime;
+			note.deltaTime = Math.round(note.absoluteTime - lastTime);
 			lastTime = note.absoluteTime;
 			delete note.absoluteTime;
 		});
